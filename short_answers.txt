@@ -1,0 +1,44 @@
+1. What does O(n) mean? O(n^2)?
+
+Big-O notation is a way of measuring the complexity of an algorithm by putting it terms of "n" which is the dataset being manipulated.
+An O(n) algorithm would be one done in linear time, which would typically be something where the entire dataset is being accessed or 
+manipulated once, such as one pass through a for-loop. Likewise, an O(n^2) algorithm would iterate over each element n times, such as
+if a for-loop iterating over the dataset was nested in another for-loop iterating over the dataset. This isn't exact down to the 
+instruction, and gives us a general idea of the performance of an algorithm or section of code.
+
+
+2. Describe the quick sort algorithm.
+
+Quicksort is an algorithm for sorting datasets that is often used due to it's general case performance of O(n log(n)) in most cases.
+The sort is done by choosing an element from the dataset called the pivot, and placing every element greater than the pivot after it
+and every element less than the pivot before it. You then break the two sides of the dataset into partitions and recursively run the
+quicksort algorithm on these, repeating this until you have broken the partitions into size one, which will return out. After the stack
+unwinds through all this recursion, you end up with a sorted dataset.
+
+
+3. In C, what is a pointer?
+
+A pointer is C is a data type that stores an address in memory, along with the type, such as "int *" being a pointer to an integer.
+Pointers are useful for a wide variety of applications, such as passing data structures to functions instead of passing the entire 
+structure, which allows the actual structure to be modified when operations are performed upon it in the function. You can also manually
+manipulate pointers, which is useful for applications such as iterating through a string (char array). You can also have null pointers,
+which point to nothing, and can be useful for error checking or indicating that no data was returned from a function. 
+
+
+4. What is the difference between Stack and Heap memory? 
+
+Heap memory is the memory provided for your computer program to create and store data. It is as big as the environment allows for and is
+unmanaged, so anything you create will stay in heap memory unless garbage collection is done. Stack memory is a structure provided by the 
+OS or environment which holds things that are in context or have been pushed on the stack, such as local variables and data for functions
+that called the current function, so after a function has returned, state will be returned back to where  it was. The stack has a limited 
+size, which is important to note in applications where you are passing large data structures by value or doing complex recursive functions,
+as you don't want to "blow up" the stack and crash your program.
+
+
+5. What is the purpose of a garbage collector?
+
+A garbage collector is useful for cleaning up heap memory and managing data that has been initialized or allocated for a program. In a 
+non-garbage collected language such as C, you must manually allocate and delete memory when you want to use it. In languages with 
+garbage collection however, you don't need to worry about deleting (or calling destructors for classes) because this is handled by the 
+garbage collector. The trade off with garbage collection is that it adds overhead to your program, so it is better to not use garbage
+collection in performance-critical code.
