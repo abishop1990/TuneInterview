@@ -15,15 +15,15 @@ using namespace std;
 
 
 //Read Board fuction
-bool readBoard(int (* values) [BOARD_SIZE][BOARD_SIZE]) {
+bool readBoard(istream & in, int (* values) [BOARD_SIZE][BOARD_SIZE]) {
     string line; 
 
 	for(int i = 0; i < BOARD_SIZE; ++i) {
         for(int j = 0; j < BOARD_SIZE; ++j) {
 
             //Read next token (there's no commas at the end of the line)
-			if(j == BOARD_SIZE -1) getline(cin,line);
-			else getline(cin, line, ',');
+			if(j == BOARD_SIZE -1) getline(in,line);
+			else getline(in, line, ',');
 			
 			//Parse out value
             int currentValue = -1;
@@ -237,7 +237,7 @@ bool SudokuBoard::checkGrid(int r, int c, int v) {
 SudokuCell::SudokuCell() {
     value = 0;
     /*for(int i = 1; i < BOARD_SIZE+1; ++i) {
-        possibleValues[i] = true;e
+        possibleValues[i] = true;
     }*/
 }
 

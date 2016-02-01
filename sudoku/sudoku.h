@@ -1,16 +1,15 @@
 #ifndef __SUDOKU__
 #define __SUDOKU__
 
+#include <iostream>
 
 //Modify GRID_SIZE to create a different sized sudoku board
 //Since we use this constant throughout, everything will be resized upon modification
 #define GRID_SIZE 3
 #define BOARD_SIZE GRID_SIZE * GRID_SIZE
 
-//Utility function to read board from stdin, used for main program and tests
-//This program assumes we get the data through STDIN according to the spec
- 
-bool readBoard(int (* values) [BOARD_SIZE][BOARD_SIZE]);
+//Utility function to read board from an input source, used for main program and tests
+bool readBoard(std::istream & in, int (* values) [BOARD_SIZE][BOARD_SIZE]);
 
 
 /*
